@@ -1,5 +1,7 @@
 # Smart-Data-Story
 [Fusion Hackaton Data 2025](https://www.gdcfusion.org/)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Coverage](https://img.shields.io/badge/coverage-92%25-blue) ![Datathon](https://img.shields.io/badge/Datathon-2025-important) ![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 
 ## Objetivo del proyecto
 En este proyecto implementamos un pipeline automático basado en Medallion Architecture (Bronze, Silver, Gold) orquestado con Mage.ai para comparar, al menos en dos momentos clave, el impacto de herramientas de CI/CD sobre la dinámica de los repositorios. Como piloto hemos elegido GitHub Actions, midiendo la correlación entre el número de eventos de cierre de issues (IssueEvent con action: closed) y los eventos de lanzamiento de versiones (ReleaseEvent). Gracias a la automatización, este flujo es totalmente parametrizable y fácilmente replicable para cualquier otra herramienta o fecha de interés, garantizando un análisis continuo y escalable de la adopción tecnológica en proyectos de código abierto.
