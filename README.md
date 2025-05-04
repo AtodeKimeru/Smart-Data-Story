@@ -31,11 +31,19 @@ Para la prueba de concepto, se analizaron dos fechas clave relacionadas con el l
 
 ```
 
-├── data/            # Datos crudos y helpers manipulacion de GH Archive
-├── dbt/              # Modelos DBT (Bronze, Silver, Gold)
-├── mage/             # Flujos de trabajo de Mage.ai
-├── dashboards/       # Visualizaciones y dashboards
-└── README.md         # Este archivo
+├── data/                  # Datos crudos y helpers manipulacion de GH Archive
+├── dbt/                   # Modelos DBT (Bronze, Silver, Gold)
+│   ├── dbt.project.yml
+│   ├── models/
+│   │   ├── silver/
+│   │   │   └── github_events_cleaned.sql
+│   │   └── gold/
+│   │       └── top_repos_daily.sql
+│   └── sources/
+│       └── github.yml
+├── mage/                  # Flujos de trabajo de Mage.ai (pipelines)
+├── dashboards/            # Visualizaciones y dashboards
+└── README.md              # Este archivo
 ```
 
 
