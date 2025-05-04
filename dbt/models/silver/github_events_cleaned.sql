@@ -13,3 +13,4 @@ SELECT
     created_at
 FROM raw
 WHERE created_at IS NOT NULL
+

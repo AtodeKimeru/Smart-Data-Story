@@ -15,6 +15,12 @@ En este proyecto implementamos un pipeline automático basado en Medallion Archi
 
 Para la prueba de concepto, se analizaron dos fechas clave relacionadas con el lanzamiento de GitHub Actions (13 de noviembre de 2019): un día antes y un año después. El pipeline descarga datos crudos de GH Archive, los transforma en Snowflake mediante DBT en las capas Silver y Gold, y calcula el coeficiente de Pearson junto con métricas de “lanzamientos por issue resuelto”. Todo el proceso se ejecuta automáticamente con Mage.ai, y los resultados se visualizan en dashboards que evidencian cómo la adopción de Actions ha afectado la eficiencia de los flujos de trabajo.
 
+### Arquitectura del Sistema
+
+![Arquitectura del Sistema](flow-chart.png)
+
+El diagrama anterior muestra la arquitectura utilizada en nuestro pipeline de datos, ilustrando el flujo desde la extracción de datos crudos hasta la generación de insights, siguiendo el patrón de Medallion Architecture con sus capas Bronze, Silver y Gold.
+
 ---
 
 ## 🛠️ Tecnologías Utilizadas
