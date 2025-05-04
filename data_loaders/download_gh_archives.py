@@ -52,3 +52,8 @@ def test_output(output, *args) -> None:
     assert output is not None, 'The output is undefined'
     assert isinstance(output, dict), 'El output debe ser un diccionario'
     assert 'files_downloaded' in output, 'No se encuentra la clave files_downloaded'
+
+
+# if __name__ == "__main__":
+#     resultado = load_data_from_api()
+#     print(resultado)
