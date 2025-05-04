@@ -1,0 +1,30 @@
+# Add these to your existing requirements.txt
+dbt-core==1.9.4
+dbt-postgres==1.9.0  # or the specific adapter you're using# Core Python Dependencies
+mage-ai==0.9.76
+pandas==2.2.1
+numpy==1.26.4
+boto3==1.34.47
+
+# Data Processing
+pyarrow==15.0.0
+dask==2024.2.0
+
+# AWS and Cloud Integrations
+botocore==1.34.47
+
+# Visualization and Formatting
+pygments==2.17.2
+
+# Optional: Jupyter Support
+jupyter==1.0.0
+notebook==7.1.2
+
+# Optional: Debugging and Logging
+rich==13.7.1
+
+# Optional: Environment Management
+python-dotenv==1.0.1
+
+# Optional: Testing
+pytest==8.1.1
