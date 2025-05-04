@@ -22,7 +22,7 @@ Para la prueba de concepto, se analizaron dos fechas clave relacionadas con el l
 * **Orquestación:** Mage.ai
 * **Transformación de Datos:** DBT
 * **Almacenamiento:** Snowflake
-* **Visualización:** Metabase / Apache Superset / Looker Studio
+* **Visualización:** PowerBI
 * **Almacenamiento de Archivos:** MinIO / S3
 
 ---
