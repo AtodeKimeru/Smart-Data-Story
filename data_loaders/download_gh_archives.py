@@ -13,8 +13,8 @@ def load_data_from_api(*args, **kwargs):
     Descarga archivos de GH Archive desde una fecha de inicio hasta una final.
     Parámetros opcionales: start_date, end_date, download_dir
     """
-    start = kwargs.get('start_date', '2025-01-01')
-    end = kwargs.get('end_date', '2025-01-03')
+    start = kwargs.get('start_date', '2019-11-12')
+    end = kwargs.get('end_date', '2020-11-13')
     download_dir = kwargs.get('download_dir', 'gharchive_data')
 
     os.makedirs(download_dir, exist_ok=True)
@@ -23,7 +23,7 @@ def load_data_from_api(*args, **kwargs):
     downloaded_files = []
 
     while current <= end_date:
-        for hour in range(2):
+        for hour in range(4):
             timestamp = current.strftime('%Y-%m-%d') + f'-{hour}'
             url = f'https://data.gharchive.org/{timestamp}.json.gz'
             local_path = os.path.join(download_dir, f'{timestamp}.json.gz')
@@ -37,7 +37,7 @@ def load_data_from_api(*args, **kwargs):
                     downloaded_files.append(local_path)
                 else:
                     print(f'Error al descargar {url}: {response.status_code}')
-        current += timedelta(days=1)
+        current = end_date
 
     return {
         "start_date": start,
@@ -52,8 +52,3 @@ def test_output(output, *args) -> None:
     assert output is not None, 'The output is undefined'
     assert isinstance(output, dict), 'El output debe ser un diccionario'
     assert 'files_downloaded' in output, 'No se encuentra la clave files_downloaded'
-
-
-# if __name__ == "__main__":
-#     resultado = load_data_from_api()
-#     print(resultado)

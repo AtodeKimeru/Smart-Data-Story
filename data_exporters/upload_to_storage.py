@@ -41,13 +41,28 @@ def export_data_to_file(**kwargs) -> None:
         print("Parámetros 'bucket_name' y 'directory' son requeridos para la subida a S3.")
         
 if __name__ == "__main__":
-    # Example of manual execution with required parameters
+    import os
+    from dotenv import load_dotenv
+    
+    # Load environment variables
+    load_dotenv()
+    
+    # Get AWS credentials and bucket from environment
+    bucket_name = os.getenv('S3_BUCKET_NAME', 'smart-data-story')
+    access_key = os.getenv('AWS_ACCESS_KEY_ID')
+    secret_key = os.getenv('AWS_SECRET_ACCESS_KEY')
+    s3_prefix = os.getenv('S3_DATA_PREFIX', '')
+    
+    # Validate required environment variables
+    if not (access_key and secret_key):
+        raise ValueError("AWS credentials must be set in .env file")
+    
+    # Example of manual execution with environment variables
     test_df = DataFrame()  # Replace with your actual DataFrame if needed
     export_data_to_file(
-        bucket_name='your-bucket-name',
-        directory='path/to/your/local/directory',
-        s3_prefix='optional/prefix',  # Optional
-        endpoint_url='your-endpoint-url',  # Optional, for MinIO or other S3-compatible services
-        access_key='your-access-key',  # Optional
-        secret_key='your-secret-key'  # Optional
+        bucket_name=bucket_name,
+        directory='gharchive_data',  # Local directory with files
+        s3_prefix=s3_prefix,
+        access_key=access_key,
+        secret_key=secret_key
     )
