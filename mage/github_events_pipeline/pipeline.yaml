@@ -1,0 +1,33 @@
+version: 1
+name: github_events_pipeline
+blocks:
+  - name: download_github_files
+    type: python
+    config: {}
+
+  - name: upload_to_s3
+    type: python
+    config: {}
+
+  - name: load_to_snowflake
+    type: python
+    config: {}
+
+  - name: run_dbt_transformations
+    type: python
+    config: {}
+
+layout:
+  - download_github_files:
+      downstream_blocks:
+        - upload_to_s3
+
+  - upload_to_s3:
+      downstream_blocks:
+        - load_to_snowflake
+
+  - load_to_snowflake:
+      downstream_blocks:
+        - run_dbt_transformations
+
+  - run_dbt_transformations: {}

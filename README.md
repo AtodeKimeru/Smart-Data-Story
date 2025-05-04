@@ -27,16 +27,14 @@ Para la prueba de concepto, se analizaron dos fechas clave relacionadas con el l
 
 ---
 
-## 🗂️ Estructura del Proyecto
+## 🗂️ Estructura principal del Proyecto
 
 ```
 
-├── data/             # Datos crudos de GH Archive
+├── data/            # Datos crudos y helpers manipulacion de GH Archive
 ├── dbt/              # Modelos DBT (Bronze, Silver, Gold)
 ├── mage/             # Flujos de trabajo de Mage.ai
-├── notebooks/        # Análisis exploratorio y pruebas
 ├── dashboards/       # Visualizaciones y dashboards
-├── docs/             # Documentación adicional
 └── README.md         # Este archivo
 ```
 
