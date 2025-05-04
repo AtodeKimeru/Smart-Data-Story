@@ -23,7 +23,7 @@ def load_data_from_api(*args, **kwargs):
     downloaded_files = []
 
     while current <= end_date:
-        for hour in range(24):
+        for hour in range(2):
             timestamp = current.strftime('%Y-%m-%d') + f'-{hour}'
             url = f'https://data.gharchive.org/{timestamp}.json.gz'
             local_path = os.path.join(download_dir, f'{timestamp}.json.gz')

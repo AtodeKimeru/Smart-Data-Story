@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  mage:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: mage-smart-data-story
+    ports:
+      - "6789:6789"
+    volumes:
+      - .:/app
+      - mage_data:/home/mage_user/.mage_data
+    environment:
+      - MAGE_DATABASE_CONNECTION_URL=postgresql://postgres:postgres@postgres:5432/mage
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+    depends_on:
+      - postgres
+    networks:
+      - smart-data-story-network
+
+  postgres:
+    image: postgres:13
+    container_name: mage-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=mage
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - smart-data-story-network
+
+  # Optional: Add MinIO for local S3-like storage
+  minio:
+    image: minio/minio
+    container_name: mage-minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=admin123
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - smart-data-story-network
+
+volumes:
+  mage_data:
+  postgres_data:
+  minio_data:
+
+networks:
+  smart-data-story-network:
+    driver: bridge
