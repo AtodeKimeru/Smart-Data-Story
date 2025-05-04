@@ -39,9 +39,10 @@ Para la prueba de concepto, se analizaron dos fechas clave relacionadas con el l
 │   │   │   └── github_events_cleaned.sql
 │   │   └── gold/
 │   │       └── top_repos_daily.sql
+│   │       └── issue_push_ratio.sql
 │   └── sources/
 │       └── github.yml
-├── mage/                  # Flujos de trabajo de Mage.ai (pipelines)
+├── mage/                  # Flujos de trabajo de Mage.ai (github_events_pipeline)
 ├── dashboards/            # Visualizaciones y dashboards
 └── README.md              # Este archivo
 ```
